@@ -9,8 +9,31 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
+			if(arr.length==0 || arr.length==1){
+				return -Infinity;
+			}
+			let sum=0;
+			for(let i=0;i<arr.length;i++){
+				sum+=arr[i]
+			}
+			if(arr[0]*arr.length == sum)
+				return -Infinity;
+			let maxi=-999999;
+			let index=-1;
+			for(let i=0;i<arr.length;i++){
+				if(arr[i]>maxi){
+					maxi=arr[i];
+					index=i;
+				}
+			}
+			arr[index]=-999999;
+			maxi=-999999;
+			for(let i=0;i<arr.length;i++){
+				if(arr[i]>maxi){
+					maxi=arr[i];
+				}
+			}
+			return maxi;
 		}
 
 		function Main() {
@@ -19,7 +42,7 @@
 			for (var i = 0; i < n; i++) {
 				arr[i] = prompt("Enter element " + (i+1));
 			}
-			alert(secondHighest(arr));
+			// alert(secondHighest(arr));
 		}
 		Main();
 	</script>
